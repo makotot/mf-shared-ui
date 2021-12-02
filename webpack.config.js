@@ -6,6 +6,11 @@ module.exports = {
   entry: path.resolve(__dirname, './src/index.tsx'),
   devServer: {
     port: 3003,
+    static: [
+      {
+        directory: path.join(__dirname, 'dist'),
+      },
+    ],
   },
   output: {
     publicPath: 'auto',
@@ -23,15 +28,17 @@ module.exports = {
       {
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
-        use: [{
-          loader: 'dts-loader',
-          options: {
-            name: 'mf_shared_ui',
-            exposes: {
-              './Button': './src/components/Button/index.tsx',
+        use: [
+          {
+            loader: 'dts-loader',
+            options: {
+              name: 'mf_shared_ui',
+              exposes: {
+                './Button': './src/components/Button/index.tsx',
+              },
             },
-          }
-        }],
+          },
+        ],
       },
     ],
   },
