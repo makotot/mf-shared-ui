@@ -22,7 +22,10 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "tar": "npm run clean && mkdir dist && tar czvf ./dist/mf_shared_ui-dts.tgz -C .wp_federation mf_shared_ui",
+    "clean": "rm -rf ./dist",
+    "serve": "npm run build && npm run tar && serve -p 3003"
   },
   "eslintConfig": {
     "extends": [
@@ -64,7 +67,9 @@
     "@storybook/preset-create-react-app": "^3.2.0",
     "@storybook/react": "^6.4.3",
     "babel-loader": "8.2.3",
+    "dts-loader": "0.1.5",
     "html-webpack-plugin": "5.5.0",
+    "serve": "13.0.2",
     "webpack": "5.64.4",
     "webpack-cli": "4.9.1",
     "webpack-dev-server": "4.6.0"
