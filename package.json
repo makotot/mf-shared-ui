@@ -17,13 +17,13 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "npm run tar && webpack serve --open --mode development",
+    "start": "webpack serve --open --mode development",
     "build": "webpack --mode production",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "tar": "npm run clean && mkdir dist && tar czvf ./dist/mf_shared_ui.tgz .wp_federation/mf_shared_ui",
+    "tar": "npm run clean && mkdir dist && tar czvf ./dist/mf_shared_ui-dts.tgz -C .wp_federation mf_shared_ui",
     "clean": "rm -rf ./dist",
     "serve": "npm run build && npm run tar && serve -p 3003"
   },
